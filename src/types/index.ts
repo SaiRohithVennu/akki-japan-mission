@@ -1,5 +1,5 @@
 export type TaskStatus = 'done' | 'pending' | 'blocked'
-export type PhaseStatus = 'locked' | 'in-progress' | 'complete'
+export type PhaseStatus = 'locked' | 'pending' | 'in-progress' | 'complete'
 export type DocStatus = 'ready' | 'pending' | 'needs-update'
 export type UniStatus = 'researching' | 'shortlisted' | 'applied' | 'admitted' | 'rejected'
 export type ScholarStatus = 'researching' | 'eligible' | 'applied' | 'awarded' | 'rejected'
