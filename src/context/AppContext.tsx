@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect, type ReactNode } from
 import type { AppState, Phase, University, Scholarship, Document, BudgetItem, TaskStatus, DocStatus, UniStatus, ScholarStatus } from '../types'
 import { initialPhases, initialUniversities, initialScholarships, initialDocuments, initialBudget, initialResources, initialTimeline } from '../data/mockData'
 
-const STORAGE_KEY = 'akki-japan-mission-v6'
+const STORAGE_KEY = 'akki-japan-mission-v8'
 
 const defaultState: AppState = {
   phases: initialPhases,

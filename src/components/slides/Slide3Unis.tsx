@@ -81,7 +81,16 @@ export default function Slide3Unis() {
 
                 {/* Name + location */}
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium leading-tight" style={{ color: '#1A1510' }}>{uni.name}</div>
+                  <a
+                    href={uni.applicationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium leading-tight hover:underline"
+                    style={{ color: '#1A1510' }}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {uni.name} ↗
+                  </a>
                   <div className="text-xs mt-0.5" style={{ color: '#9A8C72' }}>{uni.location} · {uni.language} taught</div>
                 </div>
 

@@ -95,9 +95,27 @@ function AppInner() {
     setTimeout(() => { cooldown.current = false }, 900)
   }, [current])
 
-  // Wheel
+  // Wheel — respect inner scrollable containers
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
+      // Walk up the DOM to find a scrollable ancestor
+      let el = e.target as HTMLElement | null
+      while (el && el !== document.body) {
+        const { overflowY } = window.getComputedStyle(el)
+        const scrollable = (overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight
+        if (scrollable) {
+          const atTop    = el.scrollTop <= 0
+          const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2
+          // Only navigate slides when the inner container hit its boundary
+          if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
+            e.preventDefault()
+            if (Math.abs(e.deltaY) >= 20) go(current + (e.deltaY > 0 ? 1 : -1))
+          }
+          return
+        }
+        el = el.parentElement
+      }
+      // No inner scrollable — navigate slides directly
       e.preventDefault()
       if (Math.abs(e.deltaY) < 30) return
       go(current + (e.deltaY > 0 ? 1 : -1))

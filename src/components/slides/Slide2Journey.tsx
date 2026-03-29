@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useApp } from '../../context/AppContext'
 import type { TaskStatus } from '../../types'
 
-function StatusDot({ status, onClick }: { status: TaskStatus; onClick: () => void }) {
+function StatusDot({ status, onClick }: { status: TaskStatus; onClick: (e: React.MouseEvent) => void }) {
   const color = status === 'done' ? '#D4521A' : status === 'blocked' ? '#ef4444' : 'transparent'
   const border = status === 'done' ? '#D4521A' : status === 'blocked' ? '#ef4444' : 'rgba(26,21,16,0.25)'
   return (
@@ -102,15 +102,23 @@ export default function Slide2Journey() {
                       <div className="py-3 pl-16 pr-4 space-y-px"
                         style={{ borderBottom: '1px solid rgba(26,21,16,0.07)', background: 'rgba(26,21,16,0.02)' }}>
                         {phase.tasks.map(task => {
-                          const cycleStatus = () => {
+                          const cycleStatus = (e: React.MouseEvent) => {
+                            e.stopPropagation()
                             const next: TaskStatus = task.status === 'pending' ? 'done' : task.status === 'done' ? 'blocked' : 'pending'
                             dispatch({ type: 'TOGGLE_TASK', phaseId: phase.id, taskId: task.id, status: next })
+                          }
+                          const openLink = () => {
+                            if (task.link) window.open(task.link, '_blank', 'noopener,noreferrer')
+                            else {
+                              const next: TaskStatus = task.status === 'pending' ? 'done' : task.status === 'done' ? 'blocked' : 'pending'
+                              dispatch({ type: 'TOGGLE_TASK', phaseId: phase.id, taskId: task.id, status: next })
+                            }
                           }
                           return (
                           <div
                             key={task.id}
                             className="flex items-center gap-3 py-2 cursor-pointer group/task"
-                            onClick={cycleStatus}
+                            onClick={openLink}
                             style={{
                               borderRadius: 4,
                               padding: '6px 8px',

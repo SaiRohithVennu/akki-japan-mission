@@ -73,9 +73,15 @@ export default function Slide4Scholar() {
               </div>
 
               {/* Name */}
-              <div className="font-display leading-tight mb-1" style={{ fontSize: 'clamp(18px, 2.2vw, 28px)', color: '#1A1510' }}>
-                {s.name}
-              </div>
+              <a
+                href={s.officialLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display leading-tight mb-1 hover:underline block"
+                style={{ fontSize: 'clamp(18px, 2.2vw, 28px)', color: '#1A1510' }}
+              >
+                {s.name} ↗
+              </a>
               <div className="text-xs mb-3" style={{ color: '#9A8C72' }}>{s.provider}</div>
 
               {/* Benefits */}
