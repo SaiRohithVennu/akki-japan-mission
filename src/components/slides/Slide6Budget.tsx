@@ -40,7 +40,7 @@ export default function Slide6Budget() {
         <div>
           <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>06 — Budget</span>
           <h2 className="font-display leading-none mt-1" style={{ fontSize: 'clamp(36px, 5.5vw, 72px)', color: '#1A1510' }}>
-            BUDGET <span style={{ color: '#D4521A' }}>WAR ROOM</span>
+            BUDGET <span style={{ color: '#D4521A' }}>TRACKER</span>
           </h2>
         </div>
         {/* Currency toggle */}

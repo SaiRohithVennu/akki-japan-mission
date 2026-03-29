@@ -152,7 +152,7 @@ export default function MissionOverview() {
             {overallProgress < 25 && 'The journey has just begun. Stay focused.'}
             {overallProgress >= 25 && overallProgress < 50 && 'Good momentum. Keep pushing through Phase 2.'}
             {overallProgress >= 50 && overallProgress < 75 && 'Halfway through. The hardest part is still ahead.'}
-            {overallProgress >= 75 && 'Almost there. The gates of Japan are opening.'}
+            {overallProgress >= 75 && 'Almost there. Keep going.'}
           </p>
         </motion.div>
 

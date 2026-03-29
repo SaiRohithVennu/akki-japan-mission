@@ -69,7 +69,7 @@ export default function Slide1Command() {
       >
         <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>01 — Status</span>
         <h2 className="font-display leading-none mt-1" style={{ fontSize: 'clamp(44px, 7vw, 90px)', color: '#1A1510' }}>
-          COMMAND <span style={{ color: '#D4521A' }}>CENTER</span>
+          MISSION <span style={{ color: '#D4521A' }}>OVERVIEW</span>
         </h2>
       </motion.div>
 

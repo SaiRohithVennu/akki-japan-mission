@@ -53,11 +53,11 @@ export default function ReadinessSummary() {
   const phasePct   = Math.round((state.phases.filter(p => p.status === 'complete').length / state.phases.length) * 100)
 
   const statusText =
-    overall < 25 ? { label: 'MISSION INITIALIZING', color: '#9A8C72' } :
-    overall < 50 ? { label: 'PREPARING FOR LAUNCH', color: '#D4521A' } :
-    overall < 75 ? { label: 'MISSION IN PROGRESS',  color: '#C89B3C' } :
-    overall < 90 ? { label: 'APPROACHING LAUNCH',   color: '#059669' } :
-                   { label: 'LAUNCH READY',          color: '#059669' }
+    overall < 25 ? { label: 'JUST GETTING STARTED', color: '#9A8C72' } :
+    overall < 50 ? { label: 'MAKING PROGRESS',      color: '#D4521A' } :
+    overall < 75 ? { label: 'HALFWAY THERE',         color: '#C89B3C' } :
+    overall < 90 ? { label: 'ALMOST DONE',           color: '#059669' } :
+                   { label: 'READY TO GO',            color: '#059669' }
 
   const checks = [
     { label: 'Tasks Completed',      value: `${tasksDone}/${totalTasks}`,                        done: tasksDone === totalTasks },

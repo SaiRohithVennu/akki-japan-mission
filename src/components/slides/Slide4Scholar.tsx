@@ -42,7 +42,7 @@ export default function Slide4Scholar() {
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-8 flex-shrink-0">
         <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>04 — Funding</span>
         <h2 className="font-display leading-none mt-1" style={{ fontSize: 'clamp(36px, 5.5vw, 72px)', color: '#1A1510' }}>
-          SCHOLARSHIP <span style={{ color: '#D4521A' }}>HUNT</span>
+          SCHOLARSHIP <span style={{ color: '#D4521A' }}>SEARCH</span>
         </h2>
       </motion.div>
 

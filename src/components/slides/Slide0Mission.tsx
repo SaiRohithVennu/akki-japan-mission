@@ -47,7 +47,7 @@ export default function Slide0Mission() {
           className="font-display leading-none mb-10"
           style={{ fontSize: 'clamp(32px, 6vw, 80px)', color: '#D4521A', letterSpacing: '0.05em' }}
         >
-          JAPAN MISSION
+          JAPAN
         </motion.div>
 
         {/* Divider */}

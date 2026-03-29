@@ -37,7 +37,7 @@ export default function DocumentCenter() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>
-            Pre-departure Arsenal
+            Documents
           </span>
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <h2

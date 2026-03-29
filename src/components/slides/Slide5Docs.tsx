@@ -45,7 +45,7 @@ export default function Slide5Docs() {
         <div>
           <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>05 — Documents</span>
           <h2 className="font-display leading-none mt-1" style={{ fontSize: 'clamp(36px, 5.5vw, 72px)', color: '#1A1510' }}>
-            DOCUMENT <span style={{ color: '#D4521A' }}>CENTER</span>
+            DOCUMENT <span style={{ color: '#D4521A' }}>CHECKLIST</span>
           </h2>
         </div>
         <div className="text-right pb-1">

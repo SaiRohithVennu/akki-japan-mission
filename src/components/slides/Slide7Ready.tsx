@@ -46,11 +46,11 @@ export default function Slide7Ready() {
   )
 
   const statusCfg =
-    overall < 25 ? { label: 'MISSION INITIALIZING', color: '#9A8C72' } :
-    overall < 50 ? { label: 'PREPARING FOR LAUNCH', color: '#D4521A' } :
-    overall < 75 ? { label: 'MISSION IN PROGRESS',  color: '#C89B3C' } :
-    overall < 90 ? { label: 'APPROACHING LAUNCH',   color: '#059669' } :
-                   { label: 'LAUNCH READY',          color: '#D4521A' }
+    overall < 25 ? { label: 'JUST GETTING STARTED', color: '#9A8C72' } :
+    overall < 50 ? { label: 'MAKING PROGRESS',      color: '#D4521A' } :
+    overall < 75 ? { label: 'HALFWAY THERE',         color: '#C89B3C' } :
+    overall < 90 ? { label: 'ALMOST DONE',           color: '#059669' } :
+                   { label: 'READY TO GO',            color: '#D4521A' }
 
   const upcoming = [...state.timeline]
     .filter(e => e.status !== 'done')
@@ -63,7 +63,7 @@ export default function Slide7Ready() {
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-6 flex-shrink-0">
         <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>07 — Final Assessment</span>
         <h2 className="font-display leading-none mt-1" style={{ fontSize: 'clamp(36px, 5.5vw, 72px)', color: '#1A1510' }}>
-          LAUNCH <span style={{ color: '#D4521A' }}>READINESS</span>
+          ARE YOU <span style={{ color: '#D4521A' }}>READY?</span>
         </h2>
       </motion.div>
 
