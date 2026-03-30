@@ -229,24 +229,20 @@ export default function Background() {
       <div className="absolute left-0 right-0" style={{ top: '33%', height: '1px', background: 'rgba(26,21,16,0.03)' }} />
       <div className="absolute left-0 right-0" style={{ top: '66%', height: '1px', background: 'rgba(26,21,16,0.03)' }} />
 
-      {/* Figure A — Sentinel (left) */}
-      <motion.div
-        className="absolute bottom-0"
-        style={{ left: '-40px', opacity: 0.55 }}
-        animate={{ y: [0, -14, 0], x: [0, 4, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <SentinelFigure />
-      </motion.div>
 
-      {/* Figure B — Scout (right) */}
+      {/* Figure B — Levi (left, replacing sentinel) */}
       <motion.div
         className="absolute bottom-0"
-        style={{ right: '-30px', opacity: 0.5 }}
-        animate={{ y: [0, -18, 0], x: [0, -5, 0] }}
+        style={{ left: '-80px', opacity: 1, height: '80vh', pointerEvents: 'none', zIndex: 5 }}
+        animate={{ y: [0, -12, 0] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
       >
-        <ScoutFigure />
+        <img
+          src="/levi.png"
+          alt=""
+          style={{ height: '100%', width: 'auto', objectFit: 'contain', display: 'block' }}
+          draggable={false}
+        />
       </motion.div>
     </div>
   )
