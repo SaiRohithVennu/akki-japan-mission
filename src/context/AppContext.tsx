@@ -1,8 +1,10 @@
-import { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useReducer, useEffect, useState, type ReactNode } from 'react'
+import { doc, onSnapshot, setDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 import type { AppState, Phase, University, Scholarship, Document, BudgetItem, TaskStatus, DocStatus, UniStatus, ScholarStatus } from '../types'
 import { initialPhases, initialUniversities, initialScholarships, initialDocuments, initialBudget, initialResources, initialTimeline } from '../data/mockData'
 
-const STORAGE_KEY = 'akki-japan-mission-v8'
+const FIRESTORE_DOC = 'shared/state'
 
 const defaultState: AppState = {
   phases: initialPhases,
@@ -14,14 +16,6 @@ const defaultState: AppState = {
   timeline: initialTimeline,
 }
 
-function loadState(): AppState {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return JSON.parse(raw)
-  } catch {}
-  return defaultState
-}
-
 type Action =
   | { type: 'TOGGLE_TASK'; phaseId: string; taskId: string; status: TaskStatus }
   | { type: 'UPDATE_TASK_NOTE'; phaseId: string; taskId: string; notes: string }
@@ -29,6 +23,7 @@ type Action =
   | { type: 'SET_UNI_STATUS'; uniId: string; status: UniStatus }
   | { type: 'SET_SCHOLAR_STATUS'; scholarId: string; status: ScholarStatus }
   | { type: 'UPDATE_BUDGET_SAVED'; itemId: string; savedINR: number }
+  | { type: 'SET_STATE'; state: AppState }
   | { type: 'RESET_ALL' }
 
 function reducer(state: AppState, action: Action): AppState {
@@ -71,6 +66,8 @@ function reducer(state: AppState, action: Action): AppState {
         ...state,
         budget: state.budget.map(b => b.id === action.itemId ? { ...b, savedINR: action.savedINR } : b)
       }
+    case 'SET_STATE':
+      return action.state
     case 'RESET_ALL':
       return defaultState
     default:
@@ -85,15 +82,45 @@ interface AppContextValue {
   getTotalTasksDone: () => number
   getTotalTasks: () => number
   getBudgetReadiness: () => number
+  syncing: boolean
 }
 
 const AppContext = createContext<AppContextValue | null>(null)
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, loadState)
+  const [state, dispatch] = useReducer(reducer, defaultState)
+  const [syncing, setSyncing] = useState(true)
+  const [remoteWrite, setRemoteWrite] = useState(false)
 
+  // Listen to Firestore in real-time
   useEffect(() => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)) } catch {}
+    const ref = doc(db, 'shared', 'state')
+    const unsub = onSnapshot(ref, snap => {
+      if (snap.exists()) {
+        const data = snap.data() as AppState
+        setRemoteWrite(true)
+        dispatch({ type: 'SET_STATE', state: data })
+      } else {
+        // First time — write default state to Firestore
+        setDoc(ref, defaultState)
+      }
+      setSyncing(false)
+    }, () => {
+      // Firestore failed (offline?) — just use default state
+      setSyncing(false)
+    })
+    return unsub
+  }, [])
+
+  // Push local changes to Firestore (skip when we just received from remote)
+  useEffect(() => {
+    if (syncing) return
+    if (remoteWrite) {
+      setRemoteWrite(false)
+      return
+    }
+    const ref = doc(db, 'shared', 'state')
+    setDoc(ref, state).catch(() => {})
   }, [state])
 
   const getTotalTasks = () => state.phases.reduce((sum, p) => sum + p.tasks.length, 0)
@@ -111,8 +138,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AppContext.Provider value={{ state, dispatch, getOverallProgress, getTotalTasksDone, getTotalTasks, getBudgetReadiness }}>
-      {children}
+    <AppContext.Provider value={{ state, dispatch, getOverallProgress, getTotalTasksDone, getTotalTasks, getBudgetReadiness, syncing }}>
+      {syncing ? (
+        <div className="fixed inset-0 flex items-center justify-center" style={{ background: '#FBF0E8', zIndex: 100 }}>
+          <div className="text-center">
+            <div className="font-display text-4xl mb-3" style={{ color: '#D4521A' }}>akki.</div>
+            <div className="text-xs tracking-widest uppercase" style={{ color: '#9A8C72' }}>Syncing...</div>
+          </div>
+        </div>
+      ) : children}
     </AppContext.Provider>
   )
 }
