@@ -58,7 +58,7 @@ export const initialPhases: Phase[] = [
       { id: 't4-3', title: 'TOEFL iBT as backup (if required by any university)', status: 'pending', priority: 'low', link: 'https://www.ets.org/toefl.html' },
       { id: 't4-4', title: 'Learn Hiragana and Katakana (basics)', status: 'pending', priority: 'medium', link: 'https://www3.nhk.or.jp/nhkworld/en/learnjapanese/' },
       { id: 't4-5', title: 'Set up Anki deck for Japanese vocabulary', status: 'pending', priority: 'low', link: 'https://ankiweb.net/' },
-      { id: 't4-6', title: 'Register for JLPT N5 or N4 (July 2026 session)', status: 'pending', priority: 'medium', dueDate: '2026-05-01', link: 'https://www.jlpt.jp/sp/e/application/overseas_list.html' },
+      { id: 't4-6', title: 'Register for JLPT N5 or N4 (July 2026 session)', status: 'pending', priority: 'medium', dueDate: '2026-05-01', link: 'https://www.jlpt.jp/sp/e/application/overseas_list.html', notes: 'JLPT exam confirmed July 5, 2026. Registration deadline ~May — verify on JLPT site.' },
       { id: 't4-7', title: 'Check EJU requirements for target universities', status: 'pending', priority: 'medium', link: 'https://www.jasso.go.jp/en/ryugaku/eju/index.html' },
       { id: 't4-8', title: 'Complete beginner Japanese course (N5 level)', status: 'pending', priority: 'medium', link: 'https://www3.nhk.or.jp/nhkworld/en/learnjapanese/' },
     ]
@@ -69,7 +69,7 @@ export const initialPhases: Phase[] = [
     description: 'Research every scholarship you can apply for. MEXT, JASSO, university grants — check them all and apply early.',
     status: 'pending',
     tasks: [
-      { id: 't5-1', title: 'MEXT Scholarship — Embassy route (opens Apr 2026)', status: 'pending', priority: 'high', link: 'https://www.in.emb-japan.go.jp/Education/Research_Student.html', dueDate: '2026-06-15' },
+      { id: 't5-1', title: 'MEXT Scholarship — Embassy route (opens Apr 2026)', status: 'pending', priority: 'high', link: 'https://www.in.emb-japan.go.jp/Education/Research_Student.html', dueDate: '2026-05-13', notes: '2026 date not announced. Last year was May 13. Check Embassy site from April 2026.' },
       { id: 't5-2', title: 'JASSO Scholarship — check eligibility', status: 'pending', priority: 'high', link: 'https://www.studyinjapan.go.jp/en/planning/scholarships/jasso-scholarships/' },
       { id: 't5-3', title: 'ADB-Japan Scholarship — review requirements', status: 'pending', priority: 'medium', link: 'https://www.adb.org/work-with-us/careers/japan-scholarship-program' },
       { id: 't5-4', title: 'UTokyo Fellowship — check eligibility after admission', status: 'pending', priority: 'medium', link: 'https://www.u-tokyo.ac.jp/en/prospective-students/scholarships.html' },
@@ -128,47 +128,47 @@ export const initialUniversities: University[] = [
   {
     id: 'u1', name: 'The University of Tokyo', location: 'Tokyo', ranking: 1,
     program: 'Graduate School of Engineering — M.Eng',
-    language: 'English', deadline: '2026-11-30',
+    language: 'English', deadline: '2026-09-17',
     tuitionJPY: 535800, scholarshipAvailable: true,
     applicationLink: 'https://www.u-tokyo.ac.jp/en/prospective-students/grad_admissions.html',
     status: 'researching',
-    notes: 'Top-ranked in Japan. Contact professor first via email before applying.'
+    notes: 'October 2026 entry deadline: Sep 17, 2026 (tentative). April 2027 entry deadline not yet announced (~Mar 2027). Contact professor first.'
   },
   {
     id: 'u2', name: 'Institute of Science Tokyo', location: 'Tokyo', ranking: 3,
     program: 'School of Computing — Master\'s Program',
-    language: 'English', deadline: '2026-12-15',
+    language: 'English', deadline: '2026-12-01',
     tuitionJPY: 535800, scholarshipAvailable: true,
     applicationLink: 'https://admissions.isct.ac.jp/en/013/graduate/programs/science-and-engineering',
     status: 'researching',
-    notes: 'Formerly Tokyo Tech. Rebranded Oct 2024. Exceptional for CS & engineering.'
+    notes: '⚠ Dec 2025–Jan 2026 round already closed. Next intake (Apr 2027) deadline not yet announced. Monitor site from Sep 2026.'
   },
   {
     id: 'u3', name: 'Osaka University', location: 'Osaka', ranking: 4,
     program: 'Graduate School of Information Science and Technology',
-    language: 'English', deadline: '2026-10-31',
+    language: 'English', deadline: '2026-11-06',
     tuitionJPY: 535800, scholarshipAvailable: true,
     applicationLink: 'https://www.osaka-u.ac.jp/en/admissions/intl-students',
     status: 'researching',
-    notes: 'Strong research culture. Active international student community.'
+    notes: 'Summer exam (Oct entry): apply by Jul 17, 2026. Winter exam (Apr 2027 entry): apply by Nov 6, 2026. App fee: ¥30,000.'
   },
   {
     id: 'u4', name: 'Waseda University', location: 'Tokyo', ranking: 8,
     program: 'Graduate School of Information, Production and Systems',
-    language: 'English', deadline: '2026-09-30',
+    language: 'English', deadline: '2026-07-01',
     tuitionJPY: 1350000, scholarshipAvailable: true,
     applicationLink: 'https://www.waseda.jp/inst/admission/en/graduate/',
     status: 'researching',
-    notes: 'Private university. Higher tuition but strong scholarship programs available.'
+    notes: '⚠ 2025 window was Jul 7–25 (closed). 2026 window not yet announced — check site from May 2026. Private university, higher tuition.'
   },
   {
     id: 'u5', name: 'Kyoto University', location: 'Kyoto', ranking: 2,
     program: 'Graduate School of Informatics',
-    language: 'English', deadline: '2026-11-15',
+    language: 'English', deadline: '2026-11-30',
     tuitionJPY: 535800, scholarshipAvailable: true,
     applicationLink: 'https://www.kyoto-u.ac.jp/en/education-campus/education-and-admissions/intl-admissions',
     status: 'researching',
-    notes: 'Historic research campus. Very selective. Strong professor relationship needed.'
+    notes: 'MEXT university route: apply Nov–Dec, result ~Jun. Direct admissions deadline not published — verify on graduate school page.'
   },
 ]
 
@@ -177,12 +177,12 @@ export const initialScholarships: Scholarship[] = [
     id: 's1', name: 'MEXT Scholarship 2026', provider: 'Government of Japan',
     type: 'government',
     eligibility: 'Indian nationals with bachelor\'s degree, under 35. Embassy-recommended route opens April 2026.',
-    deadline: '2026-06-15',
+    deadline: '2026-05-13',
     benefitsJPY: 1716000,
     benefitsDesc: 'Full tuition waiver + ¥143,000/month stipend + round-trip airfare',
     officialLink: 'https://www.in.emb-japan.go.jp/Education/Research_Student.html',
     status: 'researching',
-    notes: 'Most prestigious. Embassy of Japan in India opens applications in April. Check now.'
+    notes: '⚠ 2026 date not announced yet. 2025 deadline was May 13. Check Embassy website from April 2026 — likely same window.'
   },
   {
     id: 's2', name: 'JASSO Honors Scholarship', provider: 'Japan Student Services Organisation',
@@ -204,7 +204,7 @@ export const initialScholarships: Scholarship[] = [
     benefitsDesc: 'Full tuition + living allowance + health insurance + travel allowance',
     officialLink: 'https://www.adb.org/work-with-us/careers/japan-scholarship-program',
     status: 'researching',
-    notes: 'Check if your specific program at your target university is ADB-designated.'
+    notes: '⚠ Deadline estimated — verify on ADB website. Check if your program is ADB-designated.'
   },
   {
     id: 's4', name: 'UTokyo International Graduate Fellowship', provider: 'University of Tokyo',
@@ -273,14 +273,14 @@ export const initialTimeline: TimelineEvent[] = [
   { id: 'tl3', title: 'JLPT July session registration opens', date: '2026-04-15', description: 'Register for JLPT N5/N4 July 2026 session', status: 'upcoming', category: 'Language' },
   { id: 'tl4', title: 'Collect sealed academic transcripts', date: '2026-05-01', description: 'All semesters, registrar seal on each page', status: 'upcoming', category: 'Document' },
   { id: 'tl5', title: 'Request recommendation letters', date: '2026-05-01', description: 'Ask both professors — give 3+ weeks lead time', status: 'upcoming', category: 'Document' },
-  { id: 'tl6', title: 'MEXT Embassy application deadline', date: '2026-06-15', description: 'Submit complete MEXT package to Embassy of Japan, New Delhi', status: 'future', category: 'Scholarship' },
-  { id: 'tl7', title: 'ADB-Japan Scholarship deadline', date: '2026-06-30', description: 'Submit ADB scholarship application if eligible', status: 'future', category: 'Scholarship' },
-  { id: 'tl8', title: 'JLPT July 2026 exam', date: '2026-07-05', description: 'Sit JLPT N5/N4 exam', status: 'future', category: 'Language' },
-  { id: 'tl9', title: 'Waseda University application deadline', date: '2026-09-30', description: 'Earliest major deadline — prepare well in advance', status: 'future', category: 'Application' },
-  { id: 'tl10', title: 'Osaka University application deadline', date: '2026-10-31', description: 'Submit complete application package to Osaka', status: 'future', category: 'Application' },
-  { id: 'tl11', title: 'Kyoto University application deadline', date: '2026-11-15', description: 'Submit graduate school application to Kyoto', status: 'future', category: 'Application' },
-  { id: 'tl12', title: 'UTokyo application deadline', date: '2026-11-30', description: 'Submit University of Tokyo application', status: 'future', category: 'Application' },
-  { id: 'tl13', title: 'Institute of Science Tokyo application deadline', date: '2026-12-15', description: 'Submit application to Institute of Science Tokyo', status: 'future', category: 'Application' },
+  { id: 'tl6', title: 'MEXT Embassy application deadline', date: '2026-05-13', description: '2026 date not announced. 2025 was May 13 — check Embassy site from April.', status: 'future', category: 'Scholarship' },
+  { id: 'tl7', title: 'ADB-Japan Scholarship deadline', date: '2026-06-30', description: '⚠ Estimated — verify exact date on ADB website before applying.', status: 'future', category: 'Scholarship' },
+  { id: 'tl8', title: 'JLPT July 2026 exam', date: '2026-07-05', description: 'Confirmed: JLPT exam July 5, 2026. Register ~April–May.', status: 'future', category: 'Language' },
+  { id: 'tl9', title: 'Osaka University — Summer exam deadline', date: '2026-07-17', description: 'Summer exam (Oct 2026 entry): application payment deadline Jul 17, 2026.', status: 'future', category: 'Application' },
+  { id: 'tl10', title: 'UTokyo — October entry deadline', date: '2026-09-17', description: 'October 2026 entry deadline: Sep 17, 2026 (tentative). Verify on UTokyo site.', status: 'future', category: 'Application' },
+  { id: 'tl11', title: 'Waseda 2026 application window', date: '2026-07-01', description: '⚠ 2025 window was Jul 7–25. 2026 not announced — check from May 2026.', status: 'future', category: 'Application' },
+  { id: 'tl12', title: 'Osaka University — Winter exam deadline', date: '2026-11-06', description: 'Winter exam (Apr 2027 entry): application payment deadline Nov 6, 2026.', status: 'future', category: 'Application' },
+  { id: 'tl13', title: 'Kyoto / IST / UTokyo (Apr 2027 entry) deadlines', date: '2026-12-01', description: '⚠ Apr 2027 entry deadlines not yet announced for these universities. Monitor from Sep 2026.', status: 'future', category: 'Application' },
   { id: 'tl14', title: 'Target: COE received from university', date: '2027-03-01', description: 'Certificate of Eligibility issued by Immigration Japan', status: 'future', category: 'Visa' },
   { id: 'tl15', title: 'Target: Student visa filed at Embassy', date: '2027-03-15', description: 'Submit student visa application in New Delhi', status: 'future', category: 'Visa' },
   { id: 'tl16', title: 'Target: Depart India — Japan', date: '2027-04-01', description: 'Flight booked. The mission goes live.', status: 'future', category: 'Travel' },

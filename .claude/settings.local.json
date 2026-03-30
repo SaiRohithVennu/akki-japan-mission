@@ -7,7 +7,25 @@
       "Bash(echo \"Exit: $?\")",
       "Bash(npx vite:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:www.in.emb-japan.go.jp)",
+      "WebFetch(domain:www.jlpt.jp)",
+      "WebFetch(domain:www.u-tokyo.ac.jp)",
+      "WebFetch(domain:www.kyoto-u.ac.jp)",
+      "WebFetch(domain:www.osaka-u.ac.jp)",
+      "WebFetch(domain:www.waseda.jp)",
+      "WebFetch(domain:admissions.isct.ac.jp)",
+      "WebFetch(domain:www.adb.org)",
+      "WebFetch(domain:www.bengaluru.in.emb-japan.go.jp)",
+      "WebFetch(domain:www.chennai.in.emb-japan.go.jp)",
+      "WebFetch(domain:www.kolkata.in.emb-japan.go.jp)",
+      "WebFetch(domain:www.studyinjapan.go.jp)",
+      "WebFetch(domain:www.japaneselanguages.com)",
+      "WebFetch(domain:www.t.kyoto-u.ac.jp)",
+      "WebFetch(domain:www.s.u-tokyo.ac.jp)",
+      "WebFetch(domain:www.sci.osaka-u.ac.jp)",
+      "WebFetch(domain:www.t.u-tokyo.ac.jp)",
+      "WebFetch(domain:daadscholarship.org)"
     ]
   }
 }
