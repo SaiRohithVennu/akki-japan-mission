@@ -29,6 +29,8 @@ export const initialPhases: Phase[] = [
       { id: 't2-7', title: 'Passport photos taken (Japan spec: 4.5×3.5cm, white bg)', status: 'pending', priority: 'low', link: 'https://www.in.emb-japan.go.jp/itpr_en/visa.html' },
       { id: 't2-8', title: 'Bank statements ready (6 months, min. ₹15L)', status: 'pending', priority: 'medium' },
       { id: 't2-9', title: 'Research proposal drafted (required for lab contact route)', status: 'pending', priority: 'medium', link: 'https://www.studyinjapan.go.jp/en/' },
+      { id: 't2-10', title: 'Get degree certificate apostilled (MEA, Government of India)', status: 'pending', priority: 'high', link: 'https://www.mea.gov.in/apostille.htm', notes: 'Required by Japanese embassy. Takes 1–2 weeks. Apply via MEA India.' },
+      { id: 't2-11', title: 'Get certified English translation of degree + transcripts', status: 'pending', priority: 'high', notes: 'Use a certified/notarised translator. Japanese universities require official English translations.' },
     ]
   },
   {
@@ -229,6 +231,9 @@ export const initialDocuments: Document[] = [
   { id: 'd9', name: 'IELTS Certificate', category: 'Language', status: 'pending', required: true, notes: 'Min. Band 6.0 required. IELTS Academic only — valid for 2 years.' },
   { id: 'd10', name: 'Research Proposal', category: 'Application', status: 'pending', required: false, notes: '2–3 pages. Required if contacting professors directly.' },
   { id: 'd11', name: 'Medical Certificate', category: 'Health', status: 'pending', required: false, notes: 'May be required by some universities post-admission.' },
+  { id: 'd12', name: 'JLPT Certificate', category: 'Language', status: 'pending', required: false, notes: 'N5/N4 minimum. N2 strongly preferred for some labs. Take July 2026 session.' },
+  { id: 'd13', name: 'Certified English Translations', category: 'Academic', status: 'pending', required: true, notes: 'Certified English translation of degree certificate + all transcripts. Required by Japanese universities and embassy.' },
+  { id: 'd14', name: 'Apostilled Degree Certificate', category: 'Academic', status: 'pending', required: true, notes: 'MEA apostille required for Japanese embassy visa submission. Apply at MEA India.' },
 ]
 
 export const initialBudget: BudgetItem[] = [
@@ -239,6 +244,9 @@ export const initialBudget: BudgetItem[] = [
   { id: 'b5', category: 'Accommodation (First 6 months)', icon: '🏠', estimatedJPY: 420000, estimatedINR: 252000, savedINR: 0, notes: 'University dorm ¥30–50K/mo. Share house slightly cheaper.' },
   { id: 'b6', category: 'Monthly Living Expenses', icon: '🍜', estimatedJPY: 100000, estimatedINR: 60000, savedINR: 0, notes: 'Food, transport, utilities, phone. Budget ¥80–120K/month.' },
   { id: 'b7', category: 'Emergency Fund Buffer', icon: '🛡️', estimatedJPY: 200000, estimatedINR: 120000, savedINR: 0, notes: 'Keep ¥200K untouched. Medical, urgent travel, surprise costs.' },
+  { id: 'b8', category: 'JLPT Exam Fee', icon: '📖', estimatedJPY: 0, estimatedINR: 3500, savedINR: 0, notes: 'JLPT registration fee for July 2026 session (India). ~₹3,500.' },
+  { id: 'b9', category: 'University Application Fees', icon: '📨', estimatedJPY: 60000, estimatedINR: 36000, savedINR: 0, notes: 'Some Japanese universities charge ¥30,000 per application. Budget for 2 paid apps.' },
+  { id: 'b10', category: 'Document Apostille + Translations', icon: '📜', estimatedJPY: 0, estimatedINR: 8000, savedINR: 0, notes: 'MEA apostille (~₹500/doc) + certified English translation fees (~₹5,000–₹7,000 total).' },
 ]
 
 export const initialResources: Resource[] = [

@@ -29,7 +29,7 @@ export default function Slide0Mission() {
         <motion.div variants={item} className="flex items-center gap-4 mb-6">
           <div style={{ width: 32, height: 1, background: '#D4521A' }} />
           <span className="text-xs tracking-[0.4em] uppercase" style={{ color: '#D4521A' }}>
-            Mission Briefing · 2025–2026
+            Mission Briefing · 2026–2027
           </span>
         </motion.div>
 

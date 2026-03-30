@@ -61,7 +61,7 @@ export default function Slide1Command() {
   ]
 
   return (
-    <div className="flex flex-col justify-center h-full max-w-5xl mx-auto px-8 md:px-16">
+    <div className="flex flex-col justify-center h-full" style={{ paddingLeft: '22%', paddingRight: '3rem' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
