@@ -22,7 +22,7 @@ export default function Slide0Mission() {
   ]
 
   return (
-    <div className="flex flex-col justify-center h-full max-w-5xl mx-auto px-8 md:px-16">
+    <div className="flex flex-col justify-center h-full" style={{ paddingLeft: '30%', paddingRight: '4rem' }}>
       <motion.div variants={container} initial="hidden" animate="show">
 
         {/* Label */}
