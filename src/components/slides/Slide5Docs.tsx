@@ -102,12 +102,12 @@ export default function Slide5Docs() {
                 </div>
 
                 {/* Status toggles */}
-                <div className="flex gap-1.5 flex-shrink-0">
+                <div className="flex gap-1 flex-shrink-0">
                   {allStatuses.map(s => (
                     <button
                       key={s}
                       onClick={() => dispatch({ type: 'SET_DOC_STATUS', docId: doc.id, status: s })}
-                      className="text-[9px] tracking-widest uppercase px-2 py-1 transition-all duration-150"
+                      className="text-[8px] tracking-widest uppercase px-1.5 py-1 transition-all duration-150"
                       style={{
                         background: doc.status === s ? statusText[s] : 'transparent',
                         color: doc.status === s ? 'white' : '#9A8C72',

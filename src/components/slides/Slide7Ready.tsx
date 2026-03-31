@@ -58,7 +58,7 @@ export default function Slide7Ready() {
     .slice(0, 4)
 
   return (
-    <div className="flex flex-col h-full py-8" style={{ paddingLeft: '22%', paddingRight: '3rem' }}>
+    <div className="flex flex-col h-full py-8 px-6 md:pl-[22%] md:pr-12">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-6 flex-shrink-0">
         <span className="text-xs tracking-[0.35em] uppercase" style={{ color: '#D4521A' }}>07 — Final Assessment</span>

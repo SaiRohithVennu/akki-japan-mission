@@ -232,7 +232,7 @@ export default function Background() {
 
       {/* Figure B — Levi (left, replacing sentinel) */}
       <motion.div
-        className="absolute bottom-0"
+        className="absolute bottom-0 hidden md:block"
         style={{ left: '-80px', opacity: 1, height: '80vh', pointerEvents: 'none', zIndex: 5 }}
         animate={{ y: [0, -12, 0] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
