@@ -135,15 +135,39 @@ function AppInner() {
   }, [current, go])
 
   // Touch
+  const touchTarget = useRef<EventTarget | null>(null)
   useEffect(() => {
-    const onStart = (e: TouchEvent) => { touchStart.current = e.touches[0].clientY }
-    const onEnd   = (e: TouchEvent) => {
+    const onStart = (e: TouchEvent) => {
+      touchStart.current = e.touches[0].clientY
+      touchTarget.current = e.target
+    }
+    const onEnd = (e: TouchEvent) => {
       if (touchStart.current === null) return
       const delta = touchStart.current - e.changedTouches[0].clientY
-      if (Math.abs(delta) > 50) go(current + (delta > 0 ? 1 : -1))
       touchStart.current = null
+
+      if (Math.abs(delta) < 50) return
+
+      // Walk up DOM from touch target — if inside a scrollable container,
+      // only navigate when that container is at its boundary
+      let el = touchTarget.current as HTMLElement | null
+      while (el && el !== document.body) {
+        const { overflowY } = window.getComputedStyle(el)
+        const scrollable = (overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight
+        if (scrollable) {
+          const atTop    = el.scrollTop <= 2
+          const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2
+          if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
+            go(current + (delta > 0 ? 1 : -1))
+          }
+          return
+        }
+        el = el.parentElement
+      }
+      // No inner scrollable — navigate slide
+      go(current + (delta > 0 ? 1 : -1))
     }
-    window.addEventListener('touchstart', onStart)
+    window.addEventListener('touchstart', onStart, { passive: true })
     window.addEventListener('touchend', onEnd)
     return () => { window.removeEventListener('touchstart', onStart); window.removeEventListener('touchend', onEnd) }
   }, [current, go])
